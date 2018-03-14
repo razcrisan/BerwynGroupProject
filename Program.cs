@@ -51,34 +51,29 @@ namespace BerwynGroupProject
 
         static void Main(string[] args)
         {
-            args = new[] {"../BerwynGroupProject/test.csv"};
-            int lines = File.ReadAllLines("../BerwynGroupProject/test.csv").Length;
-            Console.WriteLine(lines);
-           
+            //first attempt for total lines
             string duplicate;
             int largestSum = 0;
+            args = new[] {"../BerwynGroupProject/test.csv"};
+            int csvTotalLines = File.ReadAllLines("../BerwynGroupProject/test.csv").Length;
+            Console.WriteLine(csvTotalLines);
+           
+           //second attempt for total lines
             int count = 0;
             string line;
-            TextReader reader = new StreamReader("../BerwynGroupProject/test.csv");
-            while ((line = reader.ReadLine()) != null)
+            TextReader totalLines = new StreamReader("../BerwynGroupProject/test.csv");
+            while ((line = totalLines.ReadLine()) != null)
             {
                 count++;
             }
             Console.WriteLine(count);
 
+            int firstNum = File.ReadAllLines("../BerwynGroupProject/test.csv").Length;
+
         }
     }
     }
 }
-
-
-
-
-
-
-
-
-
 
 
 
