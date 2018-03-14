@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
+using Microsoft.VisualBasic.CompilerServices;
 
 
 namespace BerwynGroupProject
@@ -18,43 +19,55 @@ namespace BerwynGroupProject
         public string Val3 {get; set;}
         
 
-        public static Values FromLine(string line)
-        {
-            var data = line.Split(',');
+//         public static Values FromLine(string line)
+//         {
+//             var data = line.Split(',');
 
-            return new Values()
-            {
-                GUID = data[0],
-                Val1 = int.Parse(data[1]),
-                Val2 = int.Parse(data[2]),
-                Val3 = data[3]
-            };
-        }
+//             return new Values()
+//             {
+//                 GUID = data[0],
+//                 Val1 = int.Parse(data[1]),
+//                 Val2 = int.Parse(data[2]),
+//                 Val3 = data[3]
+//             };
+//         }
      
-        }
+//         }
+        
+//         static IList<Values> ReadValues(string path)
+//         {
+           
+            
+//             var list = new List<Values>();
+//             foreach(var line in File.ReadLines(path))
+//             {
+//                 int lines = File.ReadAllLines("../BerwynGroupProject/test.csv").Length;
+//             }
+//             return list;
+//         }
+        
+//     }
 
 
         static void Main(string[] args)
         {
             args = new[] {"../BerwynGroupProject/test.csv"};
-
-            var values = ReadValues(args[0]);
-    
-            Console.WriteLine(values);
-        }
-        
-       
-       
-        static IList<Values> ReadValues(string path)
-        {
-            var list = new List<Values>();
-            foreach(var line in File.ReadLines(path))
+            int lines = File.ReadAllLines("../BerwynGroupProject/test.csv").Length;
+            Console.WriteLine(lines);
+           
+            string duplicate;
+            int largestSum = 0;
+            int count = 0;
+            string line;
+            TextReader reader = new StreamReader("../BerwynGroupProject/test.csv");
+            while ((line = reader.ReadLine()) != null)
             {
-                list.Add(Values.FromLine(line));
+                count++;
             }
-            return list;
+            Console.WriteLine(count);
+
         }
-        
+    }
     }
 }
 
@@ -71,8 +84,7 @@ namespace BerwynGroupProject
 
 
 
-
-
+// Different Method of parsing. 
         // struct Vertex
         // {
         //     private int _x, _y, _z;
