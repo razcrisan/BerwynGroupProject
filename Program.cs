@@ -45,10 +45,10 @@ namespace BerwynGroupProject
         
        
        
-        static IList<Values> ReadValues(string path, bool hasHeaders = true)
+        static IList<Values> ReadValues(string path)
         {
             var list = new List<Values>();
-            foreach(var line in File.ReadLines(path).Skip(hasHeaders ? 1 : 0))
+            foreach(var line in File.ReadLines(path))
             {
                 list.Add(Values.FromLine(line));
             }
