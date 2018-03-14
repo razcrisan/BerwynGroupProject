@@ -36,7 +36,7 @@ namespace BerwynGroupProject
 
         static void Main(string[] args)
         {
-            args = new[] {"../test.csv"};
+            args = new[] {"../BerwynGroupProject../test.csv"};
 
             var values = ReadValues(args[0]);
     
