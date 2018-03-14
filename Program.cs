@@ -17,7 +17,7 @@ namespace BerwynGroupProject
         public int Val1 {get; set;}
         public int Val2 {get; set;}
         public string Val3 {get; set;}
-        
+        }
 
 
         //method to put GUID values into an array
@@ -38,7 +38,7 @@ namespace BerwynGroupProject
             return data;
 
         }
-        }
+        
         //method to put Val1 values into an array
         //method to put Val2 values into an array
         //method to put Val3 values into an array
