@@ -20,7 +20,7 @@ namespace BerwynGroupProject
         }
 
 
-        //method to put GUID values into an array
+        // method to put GUID values into an array
         public Array ArrayOfGUID(string[] args)
         {
             string filePath = @"../BerwynGroupProject/test.csv";
@@ -36,8 +36,8 @@ namespace BerwynGroupProject
             }
             var data = lines.ToArray();
             return data;
-
         }
+
         
         //method to put Val1 values into an array
         //method to put Val2 values into an array
@@ -47,7 +47,21 @@ namespace BerwynGroupProject
         {
             //first attempt for total lines
             // args = new[] {"../BerwynGroupProject/test.csv"};
-            
+        using(var reader = new StreamReader(@"../BerwynGroupProject/test.csv"))
+        {
+            List<string> listA = new List<string>();
+            List<string> listB = new List<string>();
+            while (!reader.EndOfStream)
+            {
+            var guidline = reader.ReadLine();
+            var values = guidline.Split(';');
+
+            listA.Add(values[0]);
+            listB.Add(values[1]);
+            }
+        }
+
+
             int number = 0;
             int largest = 0;
             int csvTotalLines = File.ReadAllLines("../BerwynGroupProject/test.csv").Length;
@@ -80,6 +94,8 @@ namespace BerwynGroupProject
             Console.WriteLine(count);
 
             int firstNum = File.ReadAllLines("../BerwynGroupProject/test.csv").Length;
+
+            
 
         }
     }
