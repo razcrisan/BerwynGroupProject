@@ -48,15 +48,36 @@ namespace BerwynGroupProject
         
 //     }
 
+        //method to put GUID values into an array
+        //method to put Val1 values into an array
+        //method to put Val2 values into an array
+        //method to put Val3 values into an array
 
         static void Main(string[] args)
         {
             //first attempt for total lines
-            string duplicate;
-            int largestSum = 0;
-            args = new[] {"../BerwynGroupProject/test.csv"};
+            // args = new[] {"../BerwynGroupProject/test.csv"};
+            
+            int number = 0;
+            int largest = 0;
             int csvTotalLines = File.ReadAllLines("../BerwynGroupProject/test.csv").Length;
             Console.WriteLine(csvTotalLines);
+
+            //for loop eventually will use the columns GUID, Val1, Val2, Val3
+            for (int i = 0; i < csvTotalLines; i++)
+            {
+                
+                if (csvTotalLines == 0)
+                {
+                    largest = number;
+                }
+                else 
+                {
+                    if (number > largest)
+                    largest = number;
+                }
+            }
+            Console.WriteLine(largest);
            
            //second attempt for total lines
             int count = 0;
@@ -70,10 +91,19 @@ namespace BerwynGroupProject
 
             int firstNum = File.ReadAllLines("../BerwynGroupProject/test.csv").Length;
 
+            
+
+
         }
     }
     }
 }
+
+
+
+
+
+
 
 
 
