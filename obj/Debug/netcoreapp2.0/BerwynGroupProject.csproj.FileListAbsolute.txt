@@ -1,0 +1,10 @@
+c:\Users\Raz\BerwynGroupProject\bin\Debug\netcoreapp2.0\BerwynGroupProject.deps.json
+c:\Users\Raz\BerwynGroupProject\bin\Debug\netcoreapp2.0\BerwynGroupProject.runtimeconfig.json
+c:\Users\Raz\BerwynGroupProject\bin\Debug\netcoreapp2.0\BerwynGroupProject.runtimeconfig.dev.json
+c:\Users\Raz\BerwynGroupProject\bin\Debug\netcoreapp2.0\BerwynGroupProject.dll
+c:\Users\Raz\BerwynGroupProject\bin\Debug\netcoreapp2.0\BerwynGroupProject.pdb
+c:\Users\Raz\BerwynGroupProject\obj\Debug\netcoreapp2.0\BerwynGroupProject.csproj.CoreCompileInputs.cache
+c:\Users\Raz\BerwynGroupProject\obj\Debug\netcoreapp2.0\BerwynGroupProject.AssemblyInfoInputs.cache
+c:\Users\Raz\BerwynGroupProject\obj\Debug\netcoreapp2.0\BerwynGroupProject.AssemblyInfo.cs
+c:\Users\Raz\BerwynGroupProject\obj\Debug\netcoreapp2.0\BerwynGroupProject.dll
+c:\Users\Raz\BerwynGroupProject\obj\Debug\netcoreapp2.0\BerwynGroupProject.pdb
