@@ -17,16 +17,10 @@ namespace BerwynGroupProject
         public int Val1 {get; set;}
         public int Val2 {get; set;}
         public string Val3 {get; set;}
-
-        public string ReadLines {get; set;}
+        public string GetCsvContent {get; set;}
         }
 
-        
-
-
-
         // method to put GUID values into an array
-        
         public Array ArrayOfGUID(string[] args)
         {
             string filePath = @"../BerwynGroupProject/test.csv";
@@ -44,7 +38,60 @@ namespace BerwynGroupProject
             return dataGUID;
         }
 
-        
+        public string[] GetCsvContent(string iFileName)
+        {
+            List<string> oCsvContent = new List<string>();
+            using (FileStream lFileStream = 
+            new FileStream("../BerwynGroupProject/test.csv", FileMode.Open, FileAccess.Read))
+            {
+                StringBuilder lFileContent = new StringBuilder();
+                using (StreamReader lReader = new StreamReader(lFileStream))
+                {
+                    // flag if a double quote is found
+                    bool lContainsDoubleQuotes = false; 
+                    // a string for the csv value
+                    string lCsvValue = "";
+                    // loop through the file until you read the end
+                    while (!lReader.EndOfStream)
+                    {
+                    // stores each line in a variable
+                    string lCsvLine = lReader.ReadLine();
+                    // for each character in the line...
+                    foreach (char lLetter in lCsvLine)
+                    {
+                    // check if the character is a double quote
+                    if (lLetter == '"')
+                    {
+                        if (!lContainsDoubleQuotes)
+                        {
+                            lContainsDoubleQuotes = true;
+                        }
+                        else
+                        {
+                            lContainsDoubleQuotes = false;
+                        }
+                    }
+                    // AND it's not within a double quote..
+                    if (lLetter == ',' && !lContainsDoubleQuotes)
+                    {
+                        // add our string to the array
+                        oCsvContent.Add(lCsvValue);
+                        // null out our string
+                        lCsvValue = "";
+                    }
+                    else
+                    {
+                        // add the character to our string
+                        lCsvValue += lLetter;
+                    }
+                }
+            }
+        }
+    }
+    return oCsvContent.ToArray();
+}
+
+
         //method to put Val1 values into an array
         //method to put Val2 values into an array
         //method to put Val3 values into an array
@@ -85,6 +132,15 @@ namespace BerwynGroupProject
             Console.WriteLine(count);
 
             int firstNum = File.ReadAllLines("../BerwynGroupProject/test.csv").Length;
+
+
+            //Finds the first line of the array the Header for each column and outputs to console.
+            
+            TextReader csvArray = File.OpenText("../BerwynGroupProject/test.csv");
+            string cvsArrayLine = csvArray.ReadLine();
+            string[] tokens = cvsArrayLine.Split(',');
+            System.Console.WriteLine(cvsArrayLine);
+            
         }
     }
 }
