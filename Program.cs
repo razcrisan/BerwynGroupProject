@@ -49,15 +49,15 @@ namespace BerwynGroupProject
             // args = new[] {"../BerwynGroupProject/test.csv"};
         using(var reader = new StreamReader(@"../BerwynGroupProject/test.csv"))
         {
-            List<string> listA = new List<string>();
-            List<string> listB = new List<string>();
+            List<string> GUID = new List<string>();
+            List<string> Val1 = new List<string>();
             while (!reader.EndOfStream)
             {
             var guidline = reader.ReadLine();
             var values = guidline.Split(';');
 
-            listA.Add(values[0]);
-            listB.Add(values[1]);
+            GUID.Add(values[0]);
+            Val1.Add(values[1]);
             }
         }
 
