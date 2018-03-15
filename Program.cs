@@ -17,10 +17,16 @@ namespace BerwynGroupProject
         public int Val1 {get; set;}
         public int Val2 {get; set;}
         public string Val3 {get; set;}
+
+        public string ReadLines {get; set;}
         }
+
+        
+
 
 
         // method to put GUID values into an array
+        
         public Array ArrayOfGUID(string[] args)
         {
             string filePath = @"../BerwynGroupProject/test.csv";
@@ -34,8 +40,8 @@ namespace BerwynGroupProject
                 Row++;
                 Console.WriteLine(Row);
             }
-            var data = lines.ToArray();
-            return data;
+            var dataGUID = lines.ToArray();
+            return dataGUID;
         }
 
         
@@ -45,29 +51,14 @@ namespace BerwynGroupProject
 
         static void Main(string[] args)
         {
-            //first attempt for total lines
+            // var read = readLines(args[0])
             // args = new[] {"../BerwynGroupProject/test.csv"};
-        using(var reader = new StreamReader(@"../BerwynGroupProject/test.csv"))
-        {
-            List<string> GUID = new List<string>();
-            List<string> Val1 = new List<string>();
-            while (!reader.EndOfStream)
-            {
-            var guidline = reader.ReadLine();
-            var values = guidline.Split(';');
-
-            GUID.Add(values[0]);
-            Val1.Add(values[1]);
-            }
-        }
-
-
             int number = 0;
             int largest = 0;
             int csvTotalLines = File.ReadAllLines("../BerwynGroupProject/test.csv").Length;
             Console.WriteLine(csvTotalLines);
-
-            //for loop eventually will use the columns GUID, Val1, Val2, Val3
+            
+            //for loop eventually will use the columns , Val1, Val2,  to find largest value
             for (int i = 0; i < csvTotalLines; i++)
             {
                 
@@ -94,9 +85,6 @@ namespace BerwynGroupProject
             Console.WriteLine(count);
 
             int firstNum = File.ReadAllLines("../BerwynGroupProject/test.csv").Length;
-
-            
-
         }
     }
 }
