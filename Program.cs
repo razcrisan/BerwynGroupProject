@@ -22,7 +22,7 @@ namespace BerwynGroupProject
         }
 
         // method to put GUID values into an array
-        public Array ArrayOfGUID(string[] args)
+        public void GetArray(string[] args)
         {
             string filePath = @"../BerwynGroupProject/test.csv";
             StreamReader sr = new StreamReader(filePath);
@@ -33,18 +33,14 @@ namespace BerwynGroupProject
                 string[] line = sr.ReadLine().Trim('"').Split(',');
                 Values val = new Values();
                 val.GUID = line[0].Trim();
-                val.Val1 = line[1].Trim();
                 Row++;
-                Console.WriteLine(Row);
-                
+                Console.WriteLine(Row); 
             }
             
-            var DataGUID = lines.ToArray();
-            return DataGUID;
+            var Values = lines.ToArray();
+            
             
         }
-
-
 
         //method to put Val1 values into an array
         //method to put Val2 values into an array
