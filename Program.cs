@@ -11,6 +11,7 @@ using Microsoft.VisualBasic.CompilerServices;
 namespace BerwynGroupProject
 {
     class Program {
+        //colums of the csv file
 
         class Values {
         public string GUID {get; set;}
@@ -19,9 +20,6 @@ namespace BerwynGroupProject
         public string Val3 {get; set;}
         public string GetCsvContent {get; set;}
         }
-        public bool ReadCurators {get; set;}
-        //created classes for columns
-
 
         // method to put GUID values into an array
         public Array ArrayOfGUID(string[] args)
@@ -32,16 +30,21 @@ namespace BerwynGroupProject
             int Row = 0;
             while (!sr.EndOfStream)
             {
-                string[] Line = sr.ReadLine().Trim('"').Split(',');
-                lines.Add(Line);
+                string[] line = sr.ReadLine().Trim('"').Split(',');
+                Values val = new Values();
+                val.GUID = line[0].Trim();
+                val.Val1 = line[1].Trim();
                 Row++;
                 Console.WriteLine(Row);
                 
             }
             
-            var dataGUID = lines.ToArray();
-            return dataGUID;
+            var DataGUID = lines.ToArray();
+            return DataGUID;
+            
         }
+
+
 
         //method to put Val1 values into an array
         //method to put Val2 values into an array
@@ -49,8 +52,7 @@ namespace BerwynGroupProject
 
         static void Main(string[] args)
         {
-            // var read = readLines(args[0])
-            // args = new[] {"../BerwynGroupProject/test.csv"};
+            
             int number = 0;
             int largest = 0;
             int csvTotalLines = File.ReadAllLines("../BerwynGroupProject/test.csv").Length;
@@ -88,11 +90,17 @@ namespace BerwynGroupProject
             //Finds the first line of the array the Header for each column and outputs to console.
             
             
+            string filePath = @"../BerwynGroupProject/test.csv";
+            StreamReader sr = new StreamReader(filePath);
+            while (!sr.EndOfStream)
+            {
             TextReader csvArray = File.OpenText("../BerwynGroupProject/test.csv");
-            string cvsArrayLine = csvArray.ReadLine();
-            string[] tokens = cvsArrayLine.Split(',');
-            System.Console.WriteLine(cvsArrayLine);
-        
+            string csvArrayLine = csvArray.ReadLine();
+            string[] csvtokens = csvArrayLine.Split(',');
+            System.Console.WriteLine(csvArrayLine);
+            }
+            System.Console.WriteLine(csvTotalLines);
+            
             
 
          
